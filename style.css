@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 63.5%;
+    /*1rem/em=10px*/
+}
+
+
+body {
+    font-weight: 300;
+    color: rgb(34, 34, 34);
+    background-color: #f3f3f3;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    background-color: #38C2CF;
+}
+
+form{
+    width: 45rem;
+    height: fit-content;
+    background-color: white;
+    margin: auto;
+    margin-top: 5rem;
+    padding: 3rem 2rem;
+}
+
+.writeLa{
+    font-size: 1.9rem;
+    font-weight: 500;
+    font-family: monospace;
+    display: block;
+    margin: 0.4rem;
+}
+
+.writeIn{
+    width: 40rem;
+    height: 3.3rem;
+    border: none;
+    background-color:  #E8F0FE;
+    border-radius: 1rem;
+    transition: 0.4s;
+}
+
+#password{
+    margin-bottom: 1.5rem;
+}
+
+.gAs{
+    font-size: 1.9rem;
+    font-weight: 500;
+    font-family: monospace;
+    margin:  0.4rem;
+    display: inline-block;
+}
+
+#male{
+    margin-bottom: 1.5rem;
+}
+
+#Football{
+    margin-bottom: 1.5rem;
+}
+
+#Country{
+    margin-bottom: 2rem;
+}
+
+input[type = "radio"],
+input[type="checkbox"]{
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+label{
+    font-size: 1.3rem;
+    margin: 0.4rem;
+}
+
+button{
+    border: none;
+    width: 8rem;
+    height: 3rem;
+    color: white;
+    font-weight: 600;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.Reset{
+    background-color: red;
+
+}
+
+.Submit{
+    background-color: green;
+}
+
+.messageDiv{
+    width: 100%;
+    height: fit-content;
+    background-color: #FFC3B8;
+    margin-top: 2rem;
+}
+
+.messageDiv * {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: red;
+    padding: 0.7rem;
+    display: inline-block;
+}
