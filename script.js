@@ -3,51 +3,60 @@ const Reset = document.querySelector(".Reset")
 const name1 = document.getElementById("name")
 const email = document.getElementById("email")
 const password = document.getElementById("password")
-const messageDiv = document.querySelector(".messageDiv")
-const country =  document.getElementById("Country")
+const country = document.getElementById("Country")
+const messageDiv = document.createElement("div")
+
+messageDiv.classList.add("messageDiv")
+document.querySelector("form").appendChild(messageDiv)
+
+
+const EMAIL_REGEX = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+function createMessageEl(message) {
+    const message1 = document.createElement("p")
+    message1.textContent = message
+    messageDiv.appendChild(message1)
+}
+
+
+
 
 Submit.addEventListener("click", function () {
     messageDiv.innerHTML = ""
 
     if (name1.value === "") {
-        const message = document.createElement("p")
-        message.textContent = "- Name is required"
-        messageDiv.appendChild(message)
+        createMessageEl("- Name is required")
     }
 
     if (email.value === "") {
-        const message = document.createElement("p")
-        message.textContent = "- Email is required"
-        messageDiv.appendChild(message)
+        createMessageEl("- Email is required")
+    } else if (!EMAIL_REGEX.test(email.value)) {
+        createMessageEl("- Email is not Valid")
     }
 
-    if (password.value === "") {
-        const message = document.createElement("p")
-        message.textContent = "- Password is required"
-        messageDiv.appendChild(message)
+    if (password.value==="" ) {
+        createMessageEl("- Password is required")
+    }else if(password.value.length < 8){
+        createMessageEl("- Password must be 8 chars at least")
     }
 
     const gender = document.querySelector('input[name="gender"]:checked')
     if (!gender) {
-        const message = document.createElement("p")
-        message.textContent = "- Gender is required"
-        messageDiv.appendChild(message)
+        createMessageEl("- Gender is required")
     }
 
-    const sports = document.querySelector('input[name="Sports"]:checked')
-    if(!sports){
-        const message = document.createElement("p")
-        message.textContent="- Sports are required"
-        messageDiv.appendChild(message)
+    const sports = document.querySelectorAll('input[name="Sports"]:checked')
+    if (sports.length===0) {
+        createMessageEl("- Sports are required")
+    }else if(sports.length<2){
+        createMessageEl("- Please select at least two sports")
     }
 
-    if(country.value===""){
-        const message = document.createElement("p")
-        message.textContent="- Country is required"
-        messageDiv.appendChild(message)
+    if (country.value === "") {
+        createMessageEl("- Country is required")
     }
 })
 
-Reset.addEventListener("click",function(){
+Reset.addEventListener("click", function () {
     location.reload()
 })
